@@ -1,5 +1,5 @@
 const read = async () => {
-    // Write your code here 
+    const asynk = '123'
 };
 
 await read();
