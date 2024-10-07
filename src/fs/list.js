@@ -7,13 +7,14 @@ const __dirname = path.dirname(__filename);
 
 const list = async () => {
 
-    const pathToWrongFile = path.join(__dirname, 'wrongFilename.txt');
-    const pathToCorrectFile = path.join(__dirname, 'properFilename.md');
+    const pathToDir = path.join(__dirname, 'files');
 
-    if(!fs.existsSync(pathToWrongFile) || fs.existsSync(pathToCorrectFile)){
+    if (!fs.existsSync(pathToDir)) {
         throw new Error('FS operation failed')
     } else {
-        fs.rename(pathToWrongFile, pathToCorrectFile, () => {})
+        fs.readdir(pathToDir, (err, files) => {
+            console.log(files)
+        })
     }
 
 };
